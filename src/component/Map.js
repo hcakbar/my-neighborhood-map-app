@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import {withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps"
+import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
 
 //React Google Map: https://tomchentw.github.io/react-google-maps/
 const MyMapComponent = withScriptjs(
@@ -11,11 +11,31 @@ const MyMapComponent = withScriptjs(
                    center={props.center}
         >
             {props.markers &&
-            props.markers
-                .filter(marker => marker.isVisible)
-                .map((marker, idx) => (
-                    <Marker key={idx} position={{lat: marker.lat, lng: marker.lng}}/>
-                ))}
+            props.markers.filter(marker => marker.isVisible).map((marker, idx) => {
+                const venueInfo = props.venues.find(venue => venue.id === marker.id);
+                return (
+                    <Marker
+                        key={idx}
+                        position={{lat: marker.lat, lng: marker.lng}}
+                        onClick={() => props.handleMarkerClick(marker)}
+                    >
+                        {marker.isOpen &&
+                        venueInfo.bestPhoto && (
+                            <InfoWindow>
+                                <React.Fragment>
+                                    <p>{venueInfo.name}</p>
+                                    <img
+                                        src={`${venueInfo.bestPhoto.prefix}200x200${
+                                            venueInfo.bestPhoto.suffix
+                                            }`}
+                                        alt='Venue image'
+                                    />
+                                </React.Fragment>
+                            </InfoWindow>
+                        )}
+                    </Marker>
+                );
+            })}
         </GoogleMap>
     ))
 );
