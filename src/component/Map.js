@@ -10,30 +10,26 @@ const MyMapComponent = withScriptjs(
         <GoogleMap defaultZoom={8}
                    zoom={props.zoom}
                    defaultCenter={{lat: -34.397, lng: 150.644}}
-                   center={props.center}
-        >
+                   center={props.center}>
             {props.markers &&
-            props.markers.filter(marker => marker.isVisible).map((marker, idx, arr) => {
+            props.markers.filter(marker => marker.isVisible).map((marker, index, array) => {
                 const venueInfo = props.venues.find(venue => venue.id === marker.id);
                 return (
                     <Marker
-                        key={idx}
+                        key={index}
                         position={{lat: marker.lat, lng: marker.lng}}
-                        onClick={() => props.handleMarkerClick(marker)}
-                        animation={arr.length === 1 ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP}
-                    >
+                        onClick={() => props.clickMarker(marker)}
+                        animation={array.length === 1 ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP}>
                         {marker.isOpen &&
                         venueInfo.bestPhoto && (
                             <InfoWindow>
                                 <React.Fragment>
                                     <p>{venueInfo.name}</p>
-                                    <img
-                                        src={`${venueInfo.bestPhoto.prefix}200x200${
-                                            venueInfo.bestPhoto.suffix
-                                            }`}
-                                        alt={venueInfo.name}
-                                        aria-label={venueInfo.name}
-                                    />
+                                    <img src={`${venueInfo.bestPhoto.prefix}200x200${
+                                        venueInfo.bestPhoto.suffix
+                                        }`}
+                                         alt={venueInfo.name}
+                                         aria-label={venueInfo.name}/>
                                 </React.Fragment>
                             </InfoWindow>
                         )}

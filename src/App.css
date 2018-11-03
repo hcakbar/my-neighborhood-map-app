@@ -6,7 +6,7 @@
     flex-flow: row nowrap;
 }
 
-.sideBar {
+.side-bar {
     width: 25%;
     background-color: black;
     color: white;
@@ -19,11 +19,11 @@
     margin-top: 5px;
 }
 
-.venueList {
+.venue-list {
     padding: 10px;
 }
 
-.listItem {
+.list-item {
     list-style: none;
     font-size: 16px;
     padding: 5px;

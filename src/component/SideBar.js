@@ -2,16 +2,12 @@ import React, {Component} from 'react'
 import VenueList from "./VenueList";
 
 export default class SideBar extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            query: "",
-            venues: []
-        }
+    state = {
+        query: "",
+        venues: []
     }
-
-    handleFilterVenues = () => {
+    /* Filter venues search result lists*/
+    searchVenuesFilter = () => {
         if (this.state.query.trim() !== "") {
             const venues = this.props.venues.filter(venue =>
                 venue.name.toLowerCase().includes(this.state.query.toLowerCase()))
@@ -20,30 +16,24 @@ export default class SideBar extends Component {
         return this.props.venues
     };
     //Filter query change markers
-    handleChange = e => {
-        this.setState({query: e.target.value});
+    updateSearchList = event => {
+        this.setState({query: event.target.value});
         const markers = this.props.venues.map(venue => {
-            const isMatched = venue.name
-                .toLowerCase()
-                .includes(e.target.value.toLowerCase());
+            const isMatched = venue.name.toLowerCase().includes(event.target.value.toLowerCase());
             const marker = this.props.markers.find(marker => marker.id === venue.id);
-            if (isMatched) {
-                marker.isVisible = true;
-            } else {
-                marker.isVisible = false;
-            }
+            isMatched === true ? marker.isVisible = true : marker.isVisible = false;
             return marker;
         });
-        this.props.updateSuperState({markers})
+        this.props.updateState({markers})
     };
 
     render() {
         return (
-            <div className='sideBar'>
-                <input type={'search'} id={'search'} placeholder={'Search Google Maps'} onChange={this.handleChange}/>
+            <div className='side-bar'>
+                <input type={'search'} id={'search'} aria-label='Search Google Maps' placeholder={'Search Google Maps'} onChange={this.updateSearchList}/>
                 <VenueList {...this.props}
-                           venues={this.handleFilterVenues()}
-                           handleListItemClick={this.props.handleListItemClick}/>
+                           venues={this.searchVenuesFilter()}
+                           clickSearchList={this.props.clickSearchList}/>
             </div>
         )
     }

@@ -6,46 +6,15 @@ import SquareAPI from "./EXT_API/squarApi"
 import SideBar from "./component/SideBar";
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            venues: [],
-            markers: [],
-            center: [],
-            zoom: 10,
-            updateSuperState: obj => {
-                this.setState(obj);
-            }
-        };
-    }
-    /* Default close all markers */
-    closeAllMarkers = () => {
-        const markers = this.state.markers.map(marker => {
-            marker.isOpen = false;
-            return marker;
-        })
-        this.setState({markers: Object.assign(this.state.markers, markers)})
-    }
-    /*Get venue details for clicked marker*/
-    handleMarkerClick = marker => {
-        this.closeAllMarkers();
-        marker.isOpen = true;
-        this.setState({markers: Object.assign(this.state.markers, marker)});
-        //copy property values for matching venue's id
-        const venue = this.state.venues.find(venue => venue.id === marker.id);
-        //copy venues from response
-        SquareAPI.getVenueDetails(marker.id).then(
-            res => {
-                const newVenue = Object.assign(venue, res.response.venue);
-                this.setState({venues: Object.assign(this.state.venues, newVenue)})
-            })
-    }
-    /*Click venue marker handler*/
-    handleListItemClick = venue => {
-        //find corresponding marker
-        const marker = this.state.markers.find(marker => marker.id === venue.id);
-        this.handleMarkerClick(marker);
-    }
+    state = {
+        venues: [],
+        markers: [],
+        center: [],
+        zoom: 10,
+        updateState: object => {
+            this.setState(object);
+        }
+    };
     /*Invoke search venues update*/
     componentDidMount() {
         SquareAPI.searchVenues({
@@ -69,12 +38,41 @@ class App extends Component {
         });
     }
 
+    /* Default close all markers */
+    closeAllMarkers = () => {
+        const markers = this.state.markers.map(marker => {
+            marker.isOpen = false;
+            return marker;
+        })
+        this.setState({markers: Object.assign(this.state.markers, markers)})
+    }
+    /*Get venue details for clicked marker*/
+    clickMarker = marker => {
+        this.closeAllMarkers();
+        marker.isOpen = true;
+        this.setState({markers: Object.assign(this.state.markers, marker)});
+        //copy property values for matching venue's id
+        const venue = this.state.venues.find(venue => venue.id === marker.id);
+        //copy venues from response
+        SquareAPI.getVenueDetails(marker.id).then(
+            response => {
+                const newVenue = Object.assign(venue, response.response.venue);
+                this.setState({venues: Object.assign(this.state.venues, newVenue)})
+            })
+    }
+    /*Click venue marker handler*/
+    clickSearchList = venue => {
+        //find corresponding marker
+        const marker = this.state.markers.find(marker => marker.id === venue.id);
+        this.clickMarker(marker);
+    }
+
     render() {
         return (
             <div className='App'>
-                <SideBar {...this.state} handleListItemClick={this.handleListItemClick} />
+                <SideBar {...this.state} clickSearchList={this.clickSearchList}/>
                 <Map {...this.state}
-                     handleMarkerClick={this.handleMarkerClick}
+                     clickMarker={this.clickMarker}
                 />
             </div>
         );
