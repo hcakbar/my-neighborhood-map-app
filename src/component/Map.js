@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
 
-//React Google Map: https://tomchentw.github.io/react-google-maps/
+//React Google Map Style Guide: https://tomchentw.github.io/react-google-maps/
 const MyMapComponent = withScriptjs(
     withGoogleMap((props) => (
         <GoogleMap defaultZoom={8}
@@ -31,7 +31,8 @@ const MyMapComponent = withScriptjs(
                                         src={`${venueInfo.bestPhoto.prefix}200x200${
                                             venueInfo.bestPhoto.suffix
                                             }`}
-                                        alt='Marker Venue'
+                                        alt={venueInfo.name}
+                                        aria-label={venueInfo.name}
                                     />
                                 </React.Fragment>
                             </InfoWindow>

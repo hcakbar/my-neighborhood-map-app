@@ -18,7 +18,7 @@ class App extends Component {
             }
         };
     }
-
+    /* Default close all markers */
     closeAllMarkers = () => {
         const markers = this.state.markers.map(marker => {
             marker.isOpen = false;
@@ -26,27 +26,29 @@ class App extends Component {
         })
         this.setState({markers: Object.assign(this.state.markers, markers)})
     }
+    /*Get venue details for clicked marker*/
     handleMarkerClick = marker => {
         this.closeAllMarkers();
         marker.isOpen = true;
         this.setState({markers: Object.assign(this.state.markers, marker)});
+        //copy property values for matching venue's id
         const venue = this.state.venues.find(venue => venue.id === marker.id);
-
+        //copy venues from response
         SquareAPI.getVenueDetails(marker.id).then(
             res => {
                 const newVenue = Object.assign(venue, res.response.venue);
                 this.setState({venues: Object.assign(this.state.venues, newVenue)})
             })
     }
-
+    /*Click venue marker handler*/
     handleListItemClick = venue => {
         //find corresponding marker
         const marker = this.state.markers.find(marker => marker.id === venue.id);
         this.handleMarkerClick(marker);
     }
-
+    /*Invoke search venues update*/
     componentDidMount() {
-        SquareAPI.search({
+        SquareAPI.searchVenues({
             near: "San Francisco Bay, CA",
             query: "BART",
             limit: 10
