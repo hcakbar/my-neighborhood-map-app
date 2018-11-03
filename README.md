@@ -11,15 +11,14 @@ How design patterns and UI libraries like React assist in developing a manageabl
 - Asynchronous programming is important to understand in today's market
 
 ## Project Requirements
-1. Neighborhood Map (React) project showing BART locations in the San Francisco Bay Area.
-Clicking a marker on the map should open more information about that location.
-![alt text](./src/doc/neighborhoodmap1.png)
-2.Clicking a name in the list view should display the information for the associated marker.
-![alt text](./src/doc/neighborhoodmap2.png)
-3 The list of locations should be filterable with a text input or dropdown menu. Filtering the list also filters the markers on the map.
-![alt text](./src/doc/neighborhoodmap3.png)
+1. Neighborhood Map (React) project showing BART locations in the San Francisco Bay Area. Clicking a marker on the map should open more information about that location.
+ * ![alt text](./src/doc/neighborhoodmap1.png)
+2. Clicking a name in the list view should display the information for the associated marker.
+ * ![alt text](./src/doc/neighborhoodmap2.png)
+3. The list of locations should be filterable with a text input or dropdown menu. Filtering the list also filters the markers on the map.
+ * ![alt text](./src/doc/neighborhoodmap3.png)
 4. The web app should be responsive (i.e., to mobile devices). Note that a hamburger menu icon used to hide the list on small screens (this is just one possible mobile implementation).
-![alt text](./src/doc/neighborhoodmap4.png)
+ * ![alt text](./src/doc/neighborhoodmap4.png)
 
 ### Completion Checklist
 - [x] Responsiveness
