@@ -48,7 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-###Additional Resources
+### Additional Resources
 None of these are required, but they can help guide you along the way. Feel free to also check out this Knowledge post featuring student-curated resources for the Neighborhood Map (React) project as well.
 	• Using Google Maps in a React component (StackOverflow)
 	• How to Write a Google Maps React Component
