@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 import './App.css';
-import Map from "./component/Map";
-import SquareAPI from "./EXT_API/squarApi"
-import SideBar from "./component/SideBar";
+import Map from "./Map";
+import SquareAPI from "./squarApi"
+import SideBar from "./SideBar";
 
 class App extends Component {
     state = {
