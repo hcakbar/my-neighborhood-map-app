@@ -9,7 +9,7 @@
 .side-bar {
     width: 25%;
     background-color: black;
-    color: white;
+    color: rgb(202, 196, 196);
 }
 
 #search {
@@ -32,4 +32,10 @@
     box-shadow: 1px 0.5px 1px rgb(125, 124, 124);
     cursor: pointer;
     text-align: left;
+}
+.list-item:hover {
+    color: white;
+}
+.list-item:active {
+    color: white;
 }
