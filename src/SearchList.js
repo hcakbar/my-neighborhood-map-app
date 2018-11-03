@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class ListItem extends Component {
+export default class SearchList extends Component {
     render() {
         return (
             <li className='list-item' onClick={() => this.props.clickSearchList(this.props)}>

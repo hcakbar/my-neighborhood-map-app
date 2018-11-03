@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ListItem from "./ListItem";
+import SearchList from "./SearchList";
 
 
 export default class VenueList extends Component {
@@ -7,7 +7,7 @@ export default class VenueList extends Component {
         return(
             <ol className='venue-list'>
                 {this.props.venues && this.props.venues.map((venue, index) => (
-                    <ListItem key={index} {...venue} clickSearchList={this.props.clickSearchList}/>
+                    <SearchList key={index} {...venue} clickSearchList={this.props.clickSearchList}/>
                 ))}
             </ol>
         )

@@ -24,7 +24,9 @@ const MyMapComponent = withScriptjs(
                         venueInfo.bestPhoto && (
                             <InfoWindow>
                                 <React.Fragment>
-                                    <p>{venueInfo.name}</p>
+                                    <li className='marker-name'>{venueInfo.name}</li>
+                                    <li className='marker-address'>{venueInfo.location.formattedAddress[0]}</li>
+                                    <li className='marker-address'>{venueInfo.location.formattedAddress[1]}</li>
                                     <img src={`${venueInfo.bestPhoto.prefix}200x200${
                                         venueInfo.bestPhoto.suffix
                                         }`}

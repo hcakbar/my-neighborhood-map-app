@@ -39,3 +39,14 @@
 .list-item:active {
     color: white;
 }
+
+.marker-name {
+    font-size: 14px;
+    padding: 2px;
+    list-style: none;
+}
+.marker-address {
+    font-size: 10px;
+    padding: 2px;
+    list-style: none;
+}
