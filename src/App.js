@@ -40,15 +40,15 @@ class App extends Component {
     }
 
     handleListItemClick = venue => {
-        //find croosponding marker
+        //find corresponding marker
         const marker = this.state.markers.find(marker => marker.id === venue.id);
         this.handleMarkerClick(marker);
     }
 
     componentDidMount() {
         SquareAPI.search({
-            near: "East Lansing, MI",
-            query: "MacDonald's",
+            near: "San Francisco Bay, CA",
+            query: "BART",
             limit: 10
         }).then(results => {
             const {venues} = results.response;
