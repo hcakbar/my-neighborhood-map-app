@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Map from "./component/Map";
 import SquareAPI from "./API"
+import SideBar from "./component/SideBar";
 
 class App extends Component {
     constructor() {
@@ -11,7 +12,10 @@ class App extends Component {
             venues: [],
             markers: [],
             center: [],
-            zoom: 10
+            zoom: 10,
+            updateSuperState: obj => {
+                this.setState(obj);
+            }
         };
     }
 
@@ -35,6 +39,12 @@ class App extends Component {
             })
     }
 
+    handleListItemClick = venue => {
+        //find croosponding marker
+        const marker = this.state.markers.find(marker => marker.id === venue.id);
+        this.handleMarkerClick(marker);
+    }
+
     componentDidMount() {
         SquareAPI.search({
             near: "East Lansing, MI",
@@ -53,14 +63,18 @@ class App extends Component {
                 };
             });
             this.setState({venues, center, markers})
+            console.log(venues)
         });
     }
 
     render() {
         return (
-            <Map {...this.state}
-                 handleMarkerClick={this.handleMarkerClick}
-            />
+            <div className='App'>
+                <SideBar {...this.state} handleListItemClick={this.handleListItemClick} />
+                <Map {...this.state}
+                     handleMarkerClick={this.handleMarkerClick}
+                />
+            </div>
         );
     }
 }

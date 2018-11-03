@@ -1,32 +1,31 @@
 .App {
-  text-align: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.sideBar {
+    width: 25%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#search {
+    width: 100%;
+    height: 32px;
+    font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.venueList {
+    padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.listItem {
+    list-style: none;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 1px darkgray;
+    cursor: pointer;
+    text-align: left;
 }
