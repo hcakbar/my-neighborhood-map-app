@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import './App.css';
 import Map from "./component/Map";
-import SquareAPI from "./API"
+import SquareAPI from "./EXT_API/squarApi"
 import SideBar from "./component/SideBar";
 
 class App extends Component {
