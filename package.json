@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "my-neighborhood-map-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,14 +26,14 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {},
-  "author": "",
+  "author": "akbar",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hcakbar/my-app.git"
+    "url": "git+https://github.com/hcakbar/my-neighborhood-map-app.git"
   },
   "bugs": {
-    "url": "https://github.com/hcakbar/my-app/issues"
+    "url": "https://github.com/hcakbar/my-neighborhood-map-app/issues"
   },
-  "homepage": "https://github.com/hcakbar/my-app#readme"
+  "homepage": "https://github.com/hcakbar/my-neighborhood-map-app#readme"
 }
