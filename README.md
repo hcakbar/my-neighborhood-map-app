@@ -1,5 +1,5 @@
 ## Project Overview
-A single page application featuring a map of your neighborhood or a neighborhood that user like to visit. The map including highlighted locations, third-party data about those locations and various ways to browse the content.
+A single page application featuring a map of a neighborhood that user like to visit. The map including highlighted locations, third-party data about those locations and various ways to browse the content.
 ## Why this Project?
 The neighborhood map application is complex enough and incorporates a variety of data points that it can easily become unwieldy to manage. There are a number of frameworks, libraries and APIs available to make this process more manageable and many employers are looking for specific skills in using these packages. 
 ## What did I Learn?
