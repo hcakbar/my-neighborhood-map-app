@@ -1,5 +1,6 @@
 
 //Foursquare api: https://developer.foursquare.com/docs/api/venues/details
+//react-foursquare: https://github.com/foursquare/react-foursquare
 class Helper {
     static baseURL() {
         return "https://api.foursquare.com/v2"
@@ -41,11 +42,13 @@ class Helper {
     }
 }
 
+//Foursquare api: Search Venues
 export default class SquareAPI {
+    //Search venues: https://developer.foursquare.com/docs/api/venues/search
     static search(urlPrams) {
         return Helper.simpleFetch("/venues/search", "GET", urlPrams);
     }
-
+    //Search venues details: https://developer.foursquare.com/docs/api/venues/details
     static getVenueDetails(VENUE_ID) {
         return Helper.simpleFetch(`/venues/${VENUE_ID}`, "GET");
     }
