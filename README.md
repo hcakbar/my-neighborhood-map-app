@@ -59,12 +59,12 @@ API-related resources:
 	• ProgrammableWeb's API Directory
 	• MediaWikiAPI for Wikipedia
 
-### References
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ### Learn More
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - To learn React, check out the [React documentation](https://reactjs.org/).
+
+### References
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - [React Google Map](https://tomchentw.github.io/react-google-maps/)
 - [Google Maps APIs](https://developers.google.com/maps/documentation/javascript/tutorial)
 - [Foursquare Developers Map APIs](https://developer.foursquare.com/docs/api/venues/details)
